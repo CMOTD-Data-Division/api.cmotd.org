@@ -9,12 +9,11 @@ export const createTable = pgTableCreator((name) => `${name}`);
 
 export const statusEnum = pgEnum("status_enum", ["PENDING", "CONFIRMED", "UNSUBSCRIBED"]);
 
-// ------------------ Newsletter subscribers ------------------
 export const subscriptions = createTable(
   "subscription",
   (d) => ({
     id: d.uuid().defaultRandom().primaryKey(),
-    name: d.varchar({ length: 256 }),
+    name: d.varchar({ length: 256 }).notNull(),
     email: d.varchar({ length: 320 }).notNull(),
     status: statusEnum().default("PENDING").notNull(),
     consentAt: d.timestamp({ withTimezone: true }).default(sql`CURRENT_TIMESTAMP`).notNull(),
@@ -32,7 +31,6 @@ export const subscriptions = createTable(
   ],
 );
 
-// Functional unique index on lower(email) (case-insensitive uniqueness)
 export const uniqueLowerEmailIndex = sql`
   CREATE UNIQUE INDEX IF NOT EXISTS subscription_email_lower_unique
   ON ${subscriptions} (lower(email));
@@ -69,7 +67,6 @@ export const contactMessages = createTable(
   (t) => [index("contact_email_idx").on(t.email)],
 );
 
-// ------------------ Optional: event stream for analytics ------------------
 export const emailEvents = createTable(
   "email_event",
   (d) => ({
