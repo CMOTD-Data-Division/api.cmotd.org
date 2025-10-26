@@ -12,6 +12,9 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     DB_SSL_CA_CERT: z.string(),
+    EMAIL_PROVIDER: z.enum(["console", "resend"]).default("console"),
+    EMAIL_FROM: z.string().email(),
+    RESEND_API_KEY: z.string(),
   },
 
   /**
@@ -23,6 +26,8 @@ export const env = createEnv({
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
     NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
+    NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER: z.string().default("X-Action-Not-Found"),
+    NEXT_PUBLIC_SITE_URL: z.string().url(),
   },
 
   /**
@@ -35,6 +40,11 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_URL:process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     DB_SSL_CA_CERT: process.env.DB_SSL_CA_CERT,
+    EMAIL_PROVIDER: process.env.EMAIL_PROVIDER,
+    EMAIL_FROM: process.env.EMAIL_FROM,
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER: process.env.NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER,
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

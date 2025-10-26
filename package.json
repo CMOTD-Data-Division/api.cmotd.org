@@ -11,7 +11,7 @@
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
     "dev": "next dev --turbo",
-    "email": "email dev --dir src/server/email/templates",
+    "email": "email dev --dir src/lib/services/email/templates --port 3001",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "lint": "next lint",
@@ -28,6 +28,7 @@
     "postgres": "^3.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "resend": "^6.2.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {
