@@ -7,9 +7,6 @@ export default {
   dialect: "postgresql",
   dbCredentials: {
     url: env.DATABASE_URL,
-  ssl: { 
-    rejectUnauthorized: false 
-  }
   },
   strict: true,
   out: "./src/server/db/migrations"
