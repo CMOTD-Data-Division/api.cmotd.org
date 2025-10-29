@@ -8,7 +8,7 @@ import { env } from "~/env";
 import { newsletterSubSchema } from "./schema";
 import Newsletter from "~/lib/services/email/templates/Newsletter";
 
-const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY as string) : null;
+const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
 
 
 export async function POST(req: Request) {
@@ -74,7 +74,7 @@ export async function POST(req: Request) {
   const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
   await db.insert(optInTokens).values({ token, subscriptionId, expiresAt });
 
-  const base = env.NEXT_PUBLIC_SITE_URL as string;
+  const base = env.NEXT_PUBLIC_SITE_URL;
   const confirmUrl = `${base}/api/newsletter/confirm?token=${token}`;
 
   if (!resend) {

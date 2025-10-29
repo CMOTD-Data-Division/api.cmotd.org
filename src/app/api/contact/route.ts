@@ -8,7 +8,7 @@ import { env } from "~/env";
 import { Feedback } from "~/lib/services/email/templates/Feedback";
 import { Resend } from "resend";
 
-const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY as string) : null;
+const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
 
 export async function POST(req: Request) {
   const form = await req.formData();
