@@ -27,6 +27,7 @@ export const env = createEnv({
     NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
     NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
     NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER: z.string().default("X-Action-Not-Found"),
+    NEXT_PUBLIC_SITE_URL: z.string().default("http://localhost:3000"),
   },
 
   /**
@@ -43,6 +44,7 @@ export const env = createEnv({
     EMAIL_INBOX: process.env.EMAIL_INBOX,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER: process.env.NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER,
+    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
