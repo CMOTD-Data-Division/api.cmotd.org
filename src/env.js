@@ -14,6 +14,7 @@ export const env = createEnv({
     DB_SSL_CA_CERT: z.string(),
     EMAIL_PROVIDER: z.enum(["console", "resend"]).default("console"),
     EMAIL_FROM: z.string().email(),
+    EMAIL_INBOX: z.string().email().optional(),
     RESEND_API_KEY: z.string(),
   },
 
@@ -42,6 +43,7 @@ export const env = createEnv({
     DB_SSL_CA_CERT: process.env.DB_SSL_CA_CERT,
     EMAIL_PROVIDER: process.env.EMAIL_PROVIDER,
     EMAIL_FROM: process.env.EMAIL_FROM,
+    EMAIL_INBOX: process.env.EMAIL_INBOX,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER: process.env.NEXT_PUBLIC_ACTION_NOT_FOUND_HEADER,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,

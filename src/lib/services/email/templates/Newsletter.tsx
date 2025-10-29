@@ -15,7 +15,7 @@ export default function Newsletter({ confirmUrl }: { confirmUrl: string }) {
       <p>Thank you!</p>
       <p>
         For questions about this list, please contact us at{" "}
-        <a href="mailto:support@cmotd.org">support@cmotd.org</a>.
+        <a href="mailto:info@cmotd.org">info@cmotd.org</a>.
       </p>
     </Html>
   );

@@ -82,7 +82,7 @@ export async function POST(req: Request) {
   }
 
   await resend.emails.send({
-    from: "CMOTD <info@cmotd.org>",
+    from: "CMOTD <no-reply@cmotd.org>",
     to: "connectmarsel@gmail.com",
     subject: "Newsletter Subscription Confirmation",
     react: Newsletter({ confirmUrl }),
