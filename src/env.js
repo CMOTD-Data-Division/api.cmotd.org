@@ -11,7 +11,6 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
-    DB_SSL_CA_CERT: z.string(),
     EMAIL_PROVIDER: z.enum(["console", "resend"]).default("console"),
     EMAIL_FROM: z.string().email(),
     EMAIL_INBOX: z.string().email().optional(),
@@ -40,7 +39,6 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_SUPABASE_URL:process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-    DB_SSL_CA_CERT: process.env.DB_SSL_CA_CERT,
     EMAIL_PROVIDER: process.env.EMAIL_PROVIDER,
     EMAIL_FROM: process.env.EMAIL_FROM,
     EMAIL_INBOX: process.env.EMAIL_INBOX,
