@@ -7,7 +7,7 @@ import { Geist } from "next/font/google";
 const siteName = "Center For Marine and Offshore Technology Development";
 const siteDesc =
   "Official website & API for the Research Center for Marine and Offshore Technology Development.";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL!;
 
 
 
@@ -75,17 +75,6 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: ["/logo_transparent.png"],
-  },
-  manifest: "/site.webmanifest",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b1220" },
-  ],
-  verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-    other: {
-      "msvalidate.01": process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION ?? "",
-    },
   },
 };
 
