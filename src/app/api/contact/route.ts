@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     if (!resend) {
       return NextResponse.json({ ok: true, message: "DEV: RESEND_API_KEY missing, token created." });
     }
-    const to = env.EMAIL_INBOX as string;
+    const to = env.EMAIL_INBOX!;
     const res = await resend.emails.send({
     from: `CMOTD <no-reply@cmotd.org>`,
     to: [to],
