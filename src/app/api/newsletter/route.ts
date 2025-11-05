@@ -7,9 +7,15 @@ import { Resend } from "resend";
 import { env } from "~/env";
 import { newsletterSubSchema } from "./schema";
 import Newsletter from "~/lib/services/email/templates/Newsletter";
+import { handleOptions, withCors } from "~/lib/utils/cors";
 
 const resend = env.RESEND_API_KEY ? new Resend(env.RESEND_API_KEY) : null;
 
+
+
+export async function OPTIONS(req: Request) {
+  return handleOptions(req);
+}
 
 export async function POST(req: Request) {
   const form = await req.formData();
@@ -88,5 +94,5 @@ export async function POST(req: Request) {
     react: Newsletter({ confirmUrl }),
   });
 
-  return NextResponse.json({ ok: true, message: "Check your email to confirm." });
+  return withCors(req, {ok: true, message: "Check your email to confirm." });
 }
