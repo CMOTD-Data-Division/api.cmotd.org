@@ -75,7 +75,6 @@ export async function POST(req: Request) {
       subscriptionId = inserted[0].id;
   }
 
-  // Create token
   const token = crypto.randomBytes(24).toString("hex");
   const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
   await db.insert(optInTokens).values({ token, subscriptionId, expiresAt });
